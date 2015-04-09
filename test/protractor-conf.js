@@ -5,17 +5,21 @@ exports.config = {
     'e2e/*.js'
   ],
 
-  capabilities: {
-    'browserName': 'chrome'
-  },
+//  chromeOnly: true,
 
-  chromeOnly: true,
-
-  baseUrl: 'http://localhost:8000/',
+  baseUrl: 'http://localhost:8000/#/phones',
 
   framework: 'jasmine',
-
+  seleniumAddress: 'http://0.0.0.0:4444/wd/hub',
+  
   jasmineNodeOpts: {
-    defaultTimeoutInterval: 30000
+    defaultTimeoutInterval: 30000,
+    showColors: true
+  },
+  capabilities : {
+      'browserName' : 'chrome',
+      'chromeOptions': {
+          args: ['--test-type']
+      }
   }
 };
